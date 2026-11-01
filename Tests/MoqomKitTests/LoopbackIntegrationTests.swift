@@ -82,7 +82,7 @@ func testToken(subject: String, e2ee: EncryptionPolicy?) -> Data {
     var claims = #"{"sub":"\#(subject)""#
     if let e2ee { claims += #","e2ee":"\#(e2ee.rawValue)""# }
     claims += "}"
-    let header = Data(#"{"alg":"ML-DSA-87","typ":"MOQT"}"#.utf8).base64URLEncodedString
+    let header = Data(#"{"alg":"ML-DSA-65","typ":"MOQT"}"#.utf8).base64URLEncodedString
     return Data((header + "." + Data(claims.utf8).base64URLEncodedString + ".sig").utf8)
 }
 
